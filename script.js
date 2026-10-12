@@ -1,3 +1,19 @@
+// ---------- logo: new agave inside the Arizona outline ----------
+// Draws a replacement logo (same Arizona outline and JDSM LANDSCAPE lettering,
+// new centered agave) and points the header and footer logos at it.
+(function () {
+  const defs = document.querySelector('.desert-defs defs');
+  if (!defs || !document.getElementById('jdsm-lockup')) return;
+  defs.insertAdjacentHTML('beforeend',
+    '<clipPath id="jdsm-no-agave"><path clip-rule="evenodd" d="M-10 -10H300V90H-10Z M32.9 34.3 L44.2 38.6 L52 47.4 L53 58.6 L48.6 66.2 L34.2 71 L32.8 71 L18.2 66 L13.5 58.8 L14.4 47.4 L21.4 38.8Z"/></clipPath>' +
+    '<symbol id="jdsm-logo" viewBox="0 0 280 78">' +
+    '<use href="#jdsm-lockup" clip-path="url(#jdsm-no-agave)"/>' +
+    '<path fill="currentColor" d="M55.50 35.27 L53.51 36.06 L51.77 36.96 L49.83 38.20 L48.14 39.54 L47.00 40.64 L45.66 42.23 L43.17 46.30 L41.63 48.24 L40.24 49.58 L39.00 50.53 L37.86 51.22 L36.46 51.87 L37.51 52.62 L38.80 54.01 L39.50 55.25 L39.89 56.59 L41.53 55.75 L43.12 54.60 L44.47 53.31 L45.51 52.02 L47.00 49.48 L48.89 44.91 L50.98 40.94 L52.82 38.25 L53.96 36.86Z M13.50 35.27 L15.49 37.36 L17.48 40.04 L18.67 42.03 L19.96 44.56 L21.80 48.99 L22.74 50.83 L24.29 53.01 L25.78 54.50 L28.01 56.05 L29.65 56.79 L31.34 57.29 L33.38 57.59 L35.62 57.59 L37.16 57.39 L38.35 57.09 L38.05 56.00 L37.66 55.20 L37.11 54.46 L36.36 53.76 L34.92 52.81 L32.09 51.67 L30.50 50.83 L28.91 49.68 L27.27 48.09 L26.03 46.55 L23.39 42.28 L22.35 40.99 L21.15 39.79 L19.32 38.30 L17.68 37.21 L15.94 36.26Z M49.04 25.33 L46.70 27.12 L44.32 29.45 L42.43 31.79 L40.74 34.52 L40.04 36.01 L39.54 37.46 L38.85 41.08 L38.15 43.47 L36.76 46.60 L35.47 48.69 L36.41 50.08 L38.25 49.09 L39.54 48.04 L40.59 47.00 L41.83 45.41 L43.22 43.12 L43.87 38.40 L44.91 34.13 L45.81 31.59 L46.90 29.11 L47.99 27.02Z M20.01 25.33 L22.10 29.06 L23.14 31.39 L23.84 33.28 L24.83 36.81 L25.28 39.15 L25.73 42.82 L26.08 43.62 L28.01 46.50 L30.05 48.54 L31.64 49.63 L32.79 50.23 L34.48 50.88 L34.87 50.78 L34.87 50.63 L32.44 46.90 L31.19 44.32 L30.30 41.58 L29.46 37.36 L28.76 35.52 L27.52 33.18 L26.22 31.29 L24.39 29.11 L22.15 26.97Z M34.52 19.41 L33.63 23.74 L32.54 30.10 L31.79 35.52 L31.49 38.55 L31.49 39.25 L31.69 40.34 L32.54 43.27 L33.73 45.91 L34.52 47.20 L35.92 44.66 L36.56 43.07 L37.01 41.68 L37.56 39.10 L37.11 34.47 L36.41 29.60Z"/></symbol>');
+  document.querySelectorAll('.logo-img use').forEach(function (u) {
+    u.setAttribute('href', '#jdsm-logo');
+  });
+})();
+
 // ---------- mobile nav ----------
 const navToggle = document.getElementById('navToggle');
 const mainNav = document.getElementById('mainNav');
